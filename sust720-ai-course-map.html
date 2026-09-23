@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SUST720 — Designing in Deep Time: Course Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#1C1815;
+    --bg-2:#221D18;
+    --panel:#2A241D;
+    --panel-edge:#3B3226;
+    --ink:#EDE3D0;
+    --ink-dim:#B7A98F;
+    --ink-faint:#8A7C64;
+    --rule:#463C2E;
+    --clay:#B0562E;
+    --clay-soft:#7C4227;
+    --moss:#65744F;
+    --slate:#59707C;
+    --gold:#C99A3D;
+    --teal:#3E8E7E;
+    --coral:#D2604A;
+    --amber:#C99A3D;
+    --judgment:#8E7CC3;
+    --focus:#E8B85A;
+    --shadow: rgba(10,8,5,.45);
+    --serif:'Fraunces', Georgia, 'Times New Roman', serif;
+    --sans:'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --mono:'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  :root[data-theme="light"]{
+    --bg:#EFE9D8;
+    --bg-2:#E8E0CB;
+    --panel:#FBF7EC;
+    --panel-edge:#D9CDAE;
+    --ink:#2A2118;
+    --ink-dim:#5C4F3C;
+    --ink-faint:#8B7A5C;
+    --rule:#D9CDAE;
+    --shadow: rgba(60,45,20,.18);
+  }
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]){
+      --bg:#EFE9D8;
+      --bg-2:#E8E0CB;
+      --panel:#FBF7EC;
+      --panel-edge:#D9CDAE;
+      --ink:#2A2118;
+      --ink-dim:#5C4F3C;
+      --ink-faint:#8B7A5C;
+      --rule:#D9CDAE;
+      --shadow: rgba(60,45,20,.18);
+    }
+  }
+  *{box-sizing:border-box;}
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
+  html,body{height:100%;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--clay); color:#fff; }
+
+  a{color:inherit;}
+  button{font-family:inherit;}
+
+  /* ---------- Header ---------- */
+  header.top{
+    padding:1.4rem 1.4rem .6rem;
+    max-width:1240px;
+    margin:0 auto;
+  }
+  .kicker{
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.02em;
+    color:var(--ink-faint);
+    margin:0 0 .4rem;
+  }
+  h1{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(1.6rem, 3.6vw, 2.5rem);
+    line-height:1.1;
+    margin:0 0 .5rem;
+    max-width:22ch;
+  }
+  h1 em{font-style:italic; color:var(--clay);}
+  .dek{
+    color:var(--ink-dim);
+    font-size:.98rem;
+    line-height:1.5;
+    max-width:56ch;
+    margin:0 0 .2rem;
+  }
+  .top-row{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:1rem;
+    flex-wrap:wrap;
+  }
+  .top-actions{
+    display:flex;
+    gap:.5rem;
+    flex-shrink:0;
+  }
+  .icon-btn{
+    background:var(--panel);
+    border:1px solid var(--panel-edge);
+    color:var(--ink);
+    width:2.4rem;height:2.4rem;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;
+    font-family:var(--serif);
+    font-size:1rem;
+    transition:transform .15s ease, border-color .15s ease;
+  }
+  .icon-btn:hover{ border-color:var(--clay); }
+  .icon-btn:focus-visible, button:focus-visible, [tabindex]:focus-visible{
+    outline:2px solid var(--focus);
+    outline-offset:2px;
+  }
+
+  /* ---------- Layer bar ---------- */
+  .layerbar-wrap{
+    position:sticky;
+    top:env(safe-area-inset-top,0px);
+    z-index:30;
+    background:linear-gradient(var(--bg) 78%, transparent);
+    padding:.6rem 0 1rem;
+  }
+  .layerbar{
+    max-width:1240px;
+    margin:0 auto;
+    padding:0 1.4rem;
+    display:flex;
+    gap:.55rem;
+    overflow-x:auto;
+    scrollbar-width:none;
+  }
+  .layerbar::-webkit-scrollbar{display:none;}
+  .layer-btn{
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+    background:var(--panel);
+    border:1px solid var(--panel-edge);
+    color:var(--ink-dim);
+    padding:.55rem .9rem .55rem .7rem;
+    border-radius:999px;
+    font-size:.84rem;
+    white-space:nowrap;
+    cursor:pointer;
+    transition:background .15s ease, color .15s ease, border-color .15s ease, transform .1s ease;
+  }
+  .layer-btn .dot{
+    width:.6rem;height:.6rem;border-radius:50%;
+    background:var(--dotcolor, var(--ink-faint));
+    flex-shrink:0;
+  }
+  .layer-btn:hover{ transform:translateY(-1px); }
+  .layer-btn.active{
+    background:var(--activebg, var(--clay));
+    border-color:transparent;
+    color:#fff;
+  }
+  .layer-btn.active .dot{ background:#fff; }
+  .layer-num{
+    font-family:var(--mono);
+    font-size:.68rem;
+    opacity:.7;
+  }
+
+  /* ---------- Map ---------- */
+  main{
+    max-width:1240px;
+    margin:0 auto;
+    padding:0 1.4rem 2.5rem;
+  }
+  .map-frame{
+    position:relative;
+    width:100%;
+    aspect-ratio: 1600 / 760;
+    border-radius:18px;
+    overflow:hidden;
+    border:1px solid var(--panel-edge);
+    background:var(--bg-2);
+    box-shadow:0 30px 60px -30px var(--shadow);
+  }
+  .map-frame svg{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    display:block;
+  }
+  .river-path{
+    fill:none;
+    stroke:var(--ink);
+    stroke-opacity:.28;
+    stroke-width:5;
+    stroke-linecap:round;
+    stroke-dasharray:3400;
+    stroke-dashoffset:3400;
+    animation:draw 2.4s cubic-bezier(.2,.7,.2,1) forwards .2s;
+  }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  .era-label{
+    font-family:var(--mono);
+    font-size:12px;
+    fill:var(--ink-faint);
+    letter-spacing:.03em;
+  }
+
+  /* stations */
+  .stations{
+    position:absolute; inset:0;
+  }
+  .station{
+    position:absolute;
+    transform:translate(-50%,-50%);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:.4rem;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:0;
+    color:var(--ink);
+  }
+  .node{
+    width:2.5rem;height:2.5rem;
+    border-radius:50%;
+    background:var(--panel);
+    border:2px solid var(--panel-edge);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);
+    font-size:.78rem;
+    color:var(--ink-dim);
+    position:relative;
+    transition:border-color .18s ease, transform .18s ease, background .18s ease;
+    box-shadow:0 6px 16px -6px var(--shadow);
+  }
+  .station:hover .node, .station:focus-visible .node{
+    transform:scale(1.12);
+    border-color:var(--clay);
+  }
+  .station.open .node{
+    background:var(--clay);
+    border-color:var(--clay);
+    color:#fff;
+  }
+  .node .badges{
+    position:absolute;
+    top:-.55rem; right:-.6rem;
+    display:flex;
+    gap:2px;
+  }
+  .badge-dot{
+    width:.62rem;height:.62rem;
+    border-radius:50%;
+    border:1.5px solid var(--bg-2);
+    box-shadow:0 0 0 1px rgba(0,0,0,.2);
+  }
+  .badge-ring{
+    width:.62rem;height:.62rem;
+    border-radius:50%;
+    border:2px solid var(--coral);
+    background:transparent;
+  }
+  .badge-diamond{
+    width:.5rem;height:.5rem;
+    background:var(--judgment);
+    border:1.5px solid var(--bg-2);
+    transform:rotate(45deg);
+    box-shadow:0 0 0 1px rgba(0,0,0,.2);
+  }
+  .station-label{
+    font-family:var(--serif);
+    font-size:.82rem;
+    font-weight:500;
+    text-align:center;
+    max-width:8.6rem;
+    line-height:1.2;
+    color:var(--ink);
+    text-shadow:0 1px 6px var(--shadow);
+  }
+  .station-week{
+    font-family:var(--mono);
+    font-size:.63rem;
+    color:var(--ink-faint);
+  }
+
+  /* legend chip inside map, contextual to active layer */
+  .map-legend{
+    position:absolute;
+    left:1rem; bottom:1rem;
+    background:var(--panel);
+    border:1px solid var(--panel-edge);
+    border-radius:12px;
+    padding:.6rem .8rem;
+    font-size:.76rem;
+    color:var(--ink-dim);
+    display:flex;
+    flex-direction:column;
+    gap:.3rem;
+    max-width:15rem;
+    backdrop-filter:blur(2px);
+  }
+  .map-legend strong{ color:var(--ink); font-weight:600; }
+  .legend-row{ display:flex; align-items:center; gap:.45rem; }
+  .legend-swatch{ width:.6rem;height:.6rem;border-radius:50%;flex-shrink:0; }
+
+  .map-hint{
+    position:absolute; right:1rem; bottom:1rem;
+    font-family:var(--mono);
+    font-size:.68rem;
+    color:var(--ink-faint);
+    text-align:right;
+    max-width:12rem;
+  }
+
+  /* ---------- Drawer ---------- */
+  .scrim{
+    position:fixed; inset:0;
+    background:rgba(10,8,5,.55);
+    opacity:0; pointer-events:none;
+    transition:opacity .2s ease;
+    z-index:40;
+  }
+  .scrim.show{ opacity:1; pointer-events:auto; }
+
+  .drawer{
+    position:fixed;
+    top:0; right:0;
+    height:100%;
+    width:min(480px, 100vw);
+    background:var(--panel);
+    border-left:1px solid var(--panel-edge);
+    transform:translateX(100%);
+    transition:transform .28s cubic-bezier(.2,.7,.2,1);
+    z-index:41;
+    overflow-y:auto;
+    padding:calc(1.4rem + env(safe-area-inset-top,0px)) 1.4rem calc(2rem + env(safe-area-inset-bottom,0px));
+  }
+  .drawer.show{ transform:translateX(0); }
+
+  .drawer-close{
+    position:sticky;
+    top:0;
+    float:right;
+    background:var(--bg-2);
+    border:1px solid var(--panel-edge);
+    color:var(--ink);
+    width:2.1rem;height:2.1rem;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:1rem;
+  }
+  .drawer-eyebrow{
+    font-family:var(--mono);
+    font-size:.7rem;
+    color:var(--ink-faint);
+    margin:0 0 .3rem;
+  }
+  .drawer h2{
+    font-family:var(--serif);
+    font-size:1.45rem;
+    font-weight:600;
+    margin:0 0 .2rem;
+    max-width:20ch;
+  }
+  .drawer .goal{
+    color:var(--ink-dim);
+    font-size:.94rem;
+    line-height:1.5;
+    margin:.5rem 0 1.1rem;
+    padding-bottom:1.1rem;
+    border-bottom:1px solid var(--rule);
+  }
+  .layer-section{
+    margin-bottom:1.3rem;
+  }
+  .layer-section h3{
+    display:flex;
+    align-items:center;
+    gap:.45rem;
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:.72rem;
+    letter-spacing:.03em;
+    text-transform:none;
+    color:var(--ink);
+    margin:0 0 .55rem;
+  }
+  .layer-section h3 .dot{ width:.55rem;height:.55rem;border-radius:50%; }
+  .layer-section.current{
+    background:var(--bg-2);
+    margin:0 -1rem 1.3rem;
+    padding:.9rem 1rem 1rem;
+    border-radius:12px;
+    border:1px solid var(--panel-edge);
+  }
+  .pill-row{ display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:.5rem; }
+  .pill{
+    font-size:.76rem;
+    padding:.28rem .6rem;
+    border-radius:999px;
+    background:var(--bg-2);
+    border:1px solid var(--panel-edge);
+    color:var(--ink-dim);
+  }
+  .drawer p{
+    font-size:.87rem;
+    line-height:1.55;
+    color:var(--ink-dim);
+    margin:.2rem 0;
+  }
+  .drawer p strong{ color:var(--ink); font-weight:600; }
+  .mark{
+    border-left:3px solid var(--markcolor, var(--clay));
+    padding:.55rem .75rem;
+    margin:.4rem 0;
+    background:var(--bg-2);
+    border-radius:0 8px 8px 0;
+    font-size:.85rem;
+    line-height:1.5;
+    color:var(--ink-dim);
+  }
+  .mark .mark-label{
+    display:block;
+    font-family:var(--mono);
+    font-size:.68rem;
+    color:var(--markcolor, var(--clay));
+    margin-bottom:.2rem;
+  }
+
+  /* ---------- Info modal ---------- */
+  .modal-scrim{
+    position:fixed; inset:0;
+    background:rgba(10,8,5,.6);
+    display:none;
+    align-items:center; justify-content:center;
+    z-index:50;
+    padding:1.4rem;
+  }
+  .modal-scrim.show{ display:flex; }
+  .modal{
+    background:var(--panel);
+    border:1px solid var(--panel-edge);
+    border-radius:16px;
+    max-width:480px;
+    width:100%;
+    max-height:min(80vh, 640px);
+    overflow-y:auto;
+    padding:1.6rem;
+  }
+  .modal h2{
+    font-family:var(--serif);
+    font-size:1.3rem;
+    margin:0 0 .8rem;
+  }
+  .modal ol{ padding-left:1.1rem; margin:0 0 1rem; }
+  .modal li{ font-size:.87rem; line-height:1.6; color:var(--ink-dim); margin-bottom:.55rem; }
+  .modal li strong{ color:var(--ink); }
+  .modal .test{
+    background:var(--bg-2);
+    border-radius:10px;
+    padding:.8rem .9rem;
+    font-size:.85rem;
+    color:var(--ink-dim);
+    line-height:1.55;
+  }
+  .modal .test strong{ color:var(--gold); }
+  .modal-close-row{ text-align:right; margin-top:1rem; }
+  .btn{
+    background:var(--clay);
+    color:#fff;
+    border:none;
+    padding:.55rem 1.1rem;
+    border-radius:999px;
+    font-size:.85rem;
+    cursor:pointer;
+  }
+
+  footer{
+    max-width:1240px;
+    margin:0 auto;
+    padding:.5rem 1.4rem 2rem;
+    color:var(--ink-faint);
+    font-size:.76rem;
+    font-family:var(--mono);
+  }
+
+  @media (max-width: 720px){
+    .map-frame{ aspect-ratio: 900/900; }
+    .station-label{ display:none; }
+    .station.open .station-label{
+      display:block;
+      position:absolute;
+      top:2.2rem;
+      background:var(--panel);
+      border:1px solid var(--panel-edge);
+      padding:.2rem .5rem;
+      border-radius:8px;
+      white-space:nowrap;
+      max-width:none;
+    }
+    .map-legend{ max-width:10.5rem; font-size:.68rem; padding:.5rem .6rem; }
+    .map-hint{ display:none; }
+    .drawer{ width:100vw; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .river-path{ animation:none; stroke-dashoffset:0; }
+    .icon-btn, .layer-btn, .node, .drawer, .scrim{ transition:none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <p class="kicker">SUST720 · Designing in Deep Time · SCAD Studio Elective</p>
+  <div class="top-row">
+    <div>
+      <h1>A map of where <em>judgment</em> lives<br>across one term in deep time.</h1>
+      <p class="dek">Six stops across the term. Toggle a layer to see it light up across the whole map — or open a stop to read everything about it: what happens there, who's involved, where AI fits (and where it's kept out), who double-checks it, and who gets the final say.</p>
+    </div>
+    <div class="top-actions">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle light and dark map" title="Toggle theme">◐</button>
+      <button class="icon-btn" id="infoBtn" aria-label="How to read this map" title="How to read this map">?</button>
+    </div>
+  </div>
+</header>
+
+<div class="layerbar-wrap">
+  <nav class="layerbar" id="layerbar" aria-label="Map layers"></nav>
+</div>
+
+<main>
+  <div class="map-frame">
+    <svg viewBox="0 0 1600 760" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="stratA" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#2B2A22"/><stop offset="1" stop-color="#231F19"/>
+        </linearGradient>
+      </defs>
+      <rect x="0" y="0" width="1600" height="760" fill="url(#stratA)"/>
+      <polygon points="0,80 1600,40 1600,150 0,190" fill="var(--slate)" opacity="0.28"/>
+      <polygon points="0,190 1600,150 1600,270 0,320" fill="var(--moss)" opacity="0.24"/>
+      <polygon points="0,320 1600,270 1600,420 0,470" fill="var(--clay-soft)" opacity="0.22"/>
+      <polygon points="0,470 1600,420 1600,560 0,610" fill="var(--gold)" opacity="0.16"/>
+      <polygon points="0,610 1600,560 1600,760 0,760" fill="#1A1712" opacity="0.5"/>
+      <text x="24" y="70" class="era-label">ORIENTATION</text>
+      <text x="1440" y="700" class="era-label" text-anchor="end">CAPSTONE</text>
+      <path id="river" class="river-path"
+        d="M 120,470 C 220,470 260,270 360,270 C 460,270 500,520 620,520 C 740,520 760,260 880,260 C 1000,260 1040,470 1140,470 C 1240,470 1300,320 1420,320" />
+    </svg>
+    <div class="stations" id="stations"></div>
+    <div class="map-legend" id="mapLegend"></div>
+    <div class="map-hint">click a station for the full account</div>
+  </div>
+</main>
+
+<footer>SUST720 course map · five layers, three boundary symbols, one river · updated for Milestone 1</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-hidden="true" role="dialog" aria-label="Station detail"></aside>
+
+<div class="modal-scrim" id="modalScrim">
+  <div class="modal">
+    <h2>How to read this map</h2>
+    <ol>
+      <li><strong>Territory.</strong> Six stops, left to right, follow the river through the term. Each one has a learning goal and an assignment.</li>
+      <li><strong>People.</strong> Turn this on to see who's actually involved at each stop — it's never just "students."</li>
+      <li><strong>AI, boundaries &amp; judgment.</strong> Three symbols: a teal dot marks where AI could help. A coral ring marks where AI is not allowed at all. A small violet diamond marks a decision that has to stay with a real person.</li>
+      <li><strong>Hand-offs.</strong> Everywhere an AI result gets checked by a person, and what happens if that AI result turns out to be wrong.</li>
+      <li><strong>Decision power.</strong> Who actually decides at each stop — both the official answer, and the quieter, less obvious one.</li>
+    </ol>
+    <div class="test"><strong>The five-minute test —</strong> after exploring, you should be able to answer two questions: where does AI touch this course, and whose call is it. If you can't yet, keep clicking stops.</div>
+    <div class="modal-close-row"><button class="btn" id="modalClose">Start exploring</button></div>
+  </div>
+</div>
+
+<script>
+const LAYERS = [
+  { id:'territory', label:'Territory', color:'var(--ink-dim)' },
+  { id:'people', label:'People', color:'var(--slate)' },
+  { id:'ai', label:'AI, boundaries & judgment', color:'var(--teal)' },
+  { id:'handoff', label:'Hand-offs', color:'var(--gold)' },
+  { id:'power', label:'Decision power', color:'var(--clay)' },
+];
+
+const STATIONS = [
+  {
+    id:'orient', x:120, y:470, week:'Wks 1–2', name:'Reading Deep Time',
+    goal:'Learn the difference between everyday clock time and the much longer time frames used in geology, forecasting, and Indigenous knowledge.',
+    assessment:'A short graded reflection, plus an informal journal that isn\u2019t graded.',
+    people:[
+      {tag:'Student', role:'writes the journal and the reflection'},
+      {tag:'Instructor', role:'Dr. Odera Whitfield — picks the readings for this unit'},
+      {tag:'TA', role:'double-checks sources before students cite them'},
+    ],
+    ai:[
+      {kind:'insertion', title:'AI-assisted reading list', body:'A student asks AI to suggest a first batch of readings on one way of understanding time. In: a few keywords. Out: an unchecked list of sources — nothing more.'},
+      {kind:'boundary', title:'The reflection itself', body:'AI can\u2019t help write the reflection. It\u2019s graded as the student\u2019s own thinking as it develops, not as a finished piece of writing.'},
+      {kind:'judgment', title:'What counts as real engagement', body:'Whether a reflection shows genuine thinking about the ideas — not just correct use of new vocabulary — is a call only a person can make.', who:'Instructor'},
+    ],
+    handoff:{who:'The TA checks every AI-suggested source against the library catalog before it can be cited.', wrong:'A made-up source doesn\u2019t cost the student a grade — but they have to find and cite a real one before they turn the work in.'},
+    power:{formal:'The instructor decides which ideas about time frame the unit.', invisible:'The TA\u2019s standard for what counts as "checked" quietly decides which AI-suggested sources ever make it into use.'},
+  },
+  {
+    id:'forecast', x:360, y:270, week:'Wks 3–4', name:'Forecasting & Anti-fragility Lab',
+    goal:'Use forecasting and anti-fragility thinking to test how well an idea about a sustainability problem would hold up under stress.',
+    assessment:'A forecast write-up with probability ranges, graded mostly on the reasoning behind the numbers, not just the numbers themselves.',
+    people:[
+      {tag:'Forecasting pair', role:'two students working the same problem together'},
+      {tag:'Instructor', role:'checks a sample of sources before grading'},
+      {tag:'Guest forecaster', role:'a working professional who set the grading bar'},
+    ],
+    ai:[
+      {kind:'insertion', title:'AI-assisted signal scan', body:'Pairs ask AI to surface early trends and warning signs. In: a topic and a time window. Out: a rough, unsorted list of leads with sources attached.'},
+      {kind:'judgment', title:'Deciding what to trust', body:'Sorting a real signal from noise — and deciding which leads are solid enough to build a forecast on — stays with the two students doing the work.', who:'Forecasting pair'},
+    ],
+    handoff:{who:'The pair reviews the AI\u2019s list together and checks any lead they actually use against a real source; the instructor spot-checks a random sample.', wrong:'If a made-up lead slips into the final write-up, it costs points on the reasoning — not the whole grade. Catching bad data is part of what\u2019s being tested.'},
+    power:{formal:'The forecasting pair decides which leads to pursue.', invisible:'The guest forecaster wrote the grading rubric before the term even started — that quietly decides what counts as a "good" forecast.'},
+  },
+  {
+    id:'indigenous', x:620, y:520, week:'Wk 5', name:'Indigenous Ways of Knowing Seminar',
+    goal:'Learn from Indigenous ways of understanding time and knowledge, without turning what\u2019s shared into a generic "lesson" anyone can reuse.',
+    assessment:'Showing up and taking part, plus a short written plan for how to give something back for what was shared.',
+    people:[
+      {tag:'Student', role:'listens first, writes the plan afterward'},
+      {tag:'Instructor', role:'sets up the seminar and the ground rules'},
+      {tag:'Knowledge Holder', role:'the invited guest — decides what gets shared and how it can be used'},
+      {tag:'Program Chair', role:'signs off on the agreement and payment for the guest'},
+    ],
+    ai:[
+      {kind:'boundary', title:'No AI, anywhere in this room', body:'No AI recording, transcribing, or summarizing anything the Knowledge Holder shares. What\u2019s shared here is personal and offered in trust for this room only — running it through a system risks misusing it in a way the course has no right to allow.'},
+      {kind:'judgment', title:'Whether the plan is genuine', body:'Whether a student\u2019s plan to give back is real, and not just a box checked, is judged by the person who shared their knowledge.', who:'Knowledge Holder, with the instructor'},
+    ],
+    handoff:{who:'Handwritten notes are shared back with the Knowledge Holder before anything from the seminar can show up in student work.', wrong:'The Knowledge Holder can ask for anything to be removed — that\u2019s their call, not the instructor\u2019s.'},
+    power:{formal:'The Knowledge Holder decides what is shared and how it can be used — that\u2019s not the course\u2019s decision to make.', invisible:'The agreement the Program Chair signs before the term starts quietly shapes what this relationship is even allowed to be.'},
+  },
+  {
+    id:'speculative', x:880, y:260, week:'Wks 6–8', name:'Speculative Design & Design Fiction Studio',
+    goal:'Build a physical object from an imagined future — one real enough that people want to ask it questions.',
+    assessment:'The object itself, plus its backstory, graded in a group critique.',
+    people:[
+      {tag:'Student', role:'builds the object and explains it in critique'},
+      {tag:'Instructor', role:'checks the process notes during critique'},
+      {tag:'Studio Technician', role:'helps with building and materials'},
+      {tag:'Peer cohort', role:'their reactions in critique shape what counts as believable'},
+    ],
+    ai:[
+      {kind:'insertion', title:'AI-assisted rough drafts', body:'Students use AI to generate quick images or text while brainstorming, treated like scrap paper — not final material. In: rough prompts and sketches. Out: draft images and text fragments.'},
+      {kind:'judgment', title:'What actually gets built', body:'Deciding what to keep from an AI draft, what to throw out, and what to build by hand instead is entirely the student\u2019s call.', who:'Student'},
+    ],
+    handoff:{who:'Nothing AI-made can be turned in as final work — students have to rebuild or clearly change any draft by hand, and note in a process log which parts started with AI. The instructor checks that log at critique.', wrong:'If AI-made material shows up in final work without being disclosed, that\u2019s treated as an honesty problem, not just a mistake — it\u2019s on the student to change it and say so.'},
+    power:{formal:'Students decide what to keep or cut from any AI draft.', invisible:'What the class reacts well to in critique quietly decides what counts as a "good" future world, no matter what the rubric says.'},
+  },
+  {
+    id:'cocreate', x:1140, y:470, week:'Wks 8–9', name:'Co-creation Workshop with Community Partners',
+    goal:'Run a workshop where community partners help build the future scenario — so their knowledge leads, not the student\u2019s own design instincts.',
+    assessment:'How well the workshop is run, plus a short write-up of what came out of it.',
+    people:[
+      {tag:'Student', role:'runs the workshop'},
+      {tag:'Instructor', role:'reviews the workshop plan beforehand'},
+      {tag:'Community partners', role:'local sustainability groups — it\u2019s their room'},
+      {tag:'Peer cohort', role:'helps run it and takes notes'},
+    ],
+    ai:[
+      {kind:'boundary', title:'The workshop itself stays human', body:'No AI runs any part of the live session, and nothing AI does ranks or scores what partners say.'},
+      {kind:'insertion', title:'AI-assisted note sorting', body:'After the session, a student can run their own notes through AI to help group ideas into themes for a first draft. In: the student\u2019s own notes. Out: a rough grouping of ideas — nothing credited to a specific partner.'},
+      {kind:'judgment', title:'Whether the write-up is fair', body:'Whether the final write-up actually reflects what partners said is a call the partners get to make, not the student or instructor.', who:'Community partners'},
+    ],
+    handoff:{who:'A student who was in the room checks every AI-suggested grouping against what partners actually said. Then the partners review the whole draft before it\u2019s final.', wrong:'Partners can reject or rewrite the grouping entirely — the write-up isn\u2019t done until they say it\u2019s right.'},
+    power:{formal:'Partners have the final say on whether the write-up represents them fairly.', invisible:'Whoever schedules the partners\u2019 time and pay quietly decides whose priorities shape the room.'},
+  },
+  {
+    id:'capstone', x:1420, y:320, week:'Wks 9–10', name:'Transformative Scenario Planning Capstone',
+    goal:'Bring the term\u2019s tools together into a set of possible futures for one sustainability problem — 500 years out — and explain how ideas about time shaped the work.',
+    assessment:'A final portfolio of scenarios plus a spoken defense of it. This is the big final grade.',
+    people:[
+      {tag:'Student', role:'defends the work out loud'},
+      {tag:'Instructor', role:'grades alongside the second reader'},
+      {tag:'Second Reader', role:'an outside faculty member brought in to grade'},
+      {tag:'Peer cohort', role:'watches the final defense'},
+    ],
+    ai:[
+      {kind:'insertion', title:'AI-assisted stress test', body:'A student can run a draft scenario through AI to find weak points or other possible outcomes. In: a draft scenario. Out: other possible branches and questions worth asking.'},
+      {kind:'boundary', title:'Grading itself', body:'No AI scores or grades anything here. The grade is a human decision, made by the instructor and second reader together.'},
+      {kind:'judgment', title:'Defending the choice', body:'If a student can\u2019t explain why an AI-suggested idea makes sense, the second reader can ask for a redo — no matter how polished it looks.', who:'Second Reader'},
+    ],
+    handoff:{who:'Any AI-suggested idea a student uses has to be explained and defended out loud in the final critique, as the student\u2019s own reasoning.', wrong:'A student who can\u2019t explain the choice has to revise it, regardless of how good it looks on paper — the call sits with the two human evaluators, not with whether the AI happened to be right.'},
+    power:{formal:'The instructor and second reader decide the grade together — it takes both of them, not just one.', invisible:'The second reader usually comes from outside the sustainability program, so their outside view quietly resets what counts as "believable" each term.'},
+  },
+];
+
+let activeLayer = 'territory';
+let openStation = null;
+
+const layerbar = document.getElementById('layerbar');
+const stationsEl = document.getElementById('stations');
+const mapLegend = document.getElementById('mapLegend');
+const drawer = document.getElementById('drawer');
+const scrim = document.getElementById('scrim');
+
+function buildLayerbar(){
+  layerbar.innerHTML = LAYERS.map((l,i)=>`
+    <button class="layer-btn" data-layer="${l.id}" style="--dotcolor:${l.color}; --activebg:${l.color}" aria-pressed="${l.id===activeLayer}">
+      <span class="dot"></span><span class="layer-num">${i+1}</span> ${l.label}
+    </button>`).join('');
+  layerbar.querySelectorAll('.layer-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{ activeLayer = btn.dataset.layer; render(); });
+  });
+}
+
+function pct(v, max){ return (v/max*100).toFixed(2)+'%'; }
+
+function badgesFor(station, layer){
+  if(layer==='ai'){
+    return station.ai.map(m => {
+      if(m.kind==='boundary') return `<span class="badge-ring" title="Non-use boundary — AI stays out"></span>`;
+      if(m.kind==='judgment') return `<span class="badge-diamond" title="Preserve human judgment"></span>`;
+      return `<span class="badge-dot" style="background:var(--teal)" title="AI insertion point"></span>`;
+    }).join('');
+  }
+  if(layer==='people'){
+    return `<span class="badge-dot" style="background:var(--slate)" title="${station.people.length} roles"></span>`;
+  }
+  if(layer==='handoff'){
+    return station.handoff ? `<span class="badge-dot" style="background:var(--gold)" title="Hand-off present"></span>` : '';
+  }
+  if(layer==='power'){
+    return `<span class="badge-dot" style="background:var(--clay)" title="Decision named"></span>`;
+  }
+  return '';
+}
+
+function buildStations(){
+  stationsEl.innerHTML = STATIONS.map(s => `
+    <button class="station" data-id="${s.id}" style="left:${pct(s.x,1600)}; top:${pct(s.y,760)}" aria-label="${s.name}, ${s.week}">
+      <span class="node"><span class="badges">${badgesFor(s, activeLayer)}</span>${s.id.slice(0,2).toUpperCase()}</span>
+      <span class="station-label">${s.name}</span>
+      <span class="station-week">${s.week}</span>
+    </button>`).join('');
+  stationsEl.querySelectorAll('.station').forEach(btn=>{
+    btn.addEventListener('click', ()=> openDrawer(btn.dataset.id));
+  });
+}
+
+function buildLegend(){
+  const legends = {
+    territory: `<strong>Territory</strong><div class="legend-row"><span class="legend-swatch" style="background:var(--ink-dim)"></span>six stations, one route</div>`,
+    people: `<strong>People</strong><div class="legend-row"><span class="legend-swatch" style="background:var(--slate)"></span>who is present at each station</div>`,
+    ai: `<strong>AI, boundaries &amp; judgment</strong><div class="legend-row"><span class="legend-swatch" style="background:var(--teal)"></span>where AI could help</div><div class="legend-row"><span class="legend-swatch" style="border:2px solid var(--coral); background:transparent"></span>where AI is not allowed</div><div class="legend-row"><span class="legend-swatch" style="background:var(--judgment); transform:rotate(45deg)"></span>a call only a person can make</div>`,
+    handoff: `<strong>Hand-offs</strong><div class="legend-row"><span class="legend-swatch" style="background:var(--gold)"></span>AI output meets a person who checks it</div>`,
+    power: `<strong>Decision power</strong><div class="legend-row"><span class="legend-swatch" style="background:var(--clay)"></span>who decides, formal and invisible</div>`,
+  };
+  mapLegend.innerHTML = legends[activeLayer];
+}
+
+function layerSection(id, title, color, html, isCurrent){
+  return `<div class="layer-section ${isCurrent?'current':''}">
+    <h3><span class="dot" style="background:${color}"></span>${title}</h3>
+    ${html}
+  </div>`;
+}
+
+function openDrawer(id){
+  const s = STATIONS.find(x=>x.id===id);
+  openStation = id;
+
+  const peopleHtml = `<div class="pill-row">${s.people.map(p=>`<span class="pill"><strong>${p.tag}</strong> — ${p.role}</span>`).join('')}</div>`;
+
+  const aiHtml = s.ai.map(m => {
+    const color = m.kind==='boundary' ? 'var(--coral)' : m.kind==='judgment' ? 'var(--judgment)' : 'var(--teal)';
+    const label = m.kind==='boundary' ? 'WHERE AI IS NOT ALLOWED' : m.kind==='judgment' ? 'A CALL ONLY A PERSON CAN MAKE' : 'WHERE AI COULD HELP';
+    const whoLine = m.who ? ` <strong>Stays with:</strong> ${m.who}.` : '';
+    return `<div class="mark" style="--markcolor:${color}">
+      <span class="mark-label">${label}</span>
+      <strong>${m.title}.</strong> ${m.body}${whoLine}
+    </div>`;
+  }).join('');
+
+  const handoffHtml = s.handoff
+    ? `<p><strong>Who checks it —</strong> ${s.handoff.who}</p><p><strong>When it's wrong —</strong> ${s.handoff.wrong}</p>`
+    : `<p>No AI output here to hand off — see the non-use boundary above.</p>`;
+
+  const powerHtml = `<p><strong>Formal —</strong> ${s.power.formal}</p><p><strong>Invisible —</strong> ${s.power.invisible}</p>`;
+
+  const order = ['territory','people','ai','handoff','power'];
+  const sections = {
+    territory: layerSection('territory','Territory','var(--ink-dim)', `<p><strong>Assessment —</strong> ${s.assessment}</p>`, activeLayer==='territory'),
+    people: layerSection('people','People','var(--slate)', peopleHtml, activeLayer==='people'),
+    ai: layerSection('ai','AI, boundaries & judgment','var(--teal)', aiHtml, activeLayer==='ai'),
+    handoff: layerSection('handoff','Hand-off','var(--gold)', handoffHtml, activeLayer==='handoff'),
+    power: layerSection('power','Decision power','var(--clay)', powerHtml, activeLayer==='power'),
+  };
+
+  drawer.innerHTML = `
+    <button class="drawer-close" id="drawerClose" aria-label="Close">×</button>
+    <p class="drawer-eyebrow">${s.week}</p>
+    <h2>${s.name}</h2>
+    <p class="goal">${s.goal}</p>
+    ${order.map(k=>sections[k]).join('')}
+  `;
+  document.getElementById('drawerClose').addEventListener('click', closeDrawer);
+
+  drawer.classList.add('show');
+  drawer.setAttribute('aria-hidden','false');
+  scrim.classList.add('show');
+  buildStations();
+  document.querySelectorAll('.station').forEach(b=> b.classList.toggle('open', b.dataset.id===id));
+}
+
+function closeDrawer(){
+  drawer.classList.remove('show');
+  drawer.setAttribute('aria-hidden','true');
+  scrim.classList.remove('show');
+  openStation = null;
+  document.querySelectorAll('.station').forEach(b=> b.classList.remove('open'));
+}
+
+scrim.addEventListener('click', closeDrawer);
+document.addEventListener('keydown', e=>{
+  if(e.key==='Escape'){ closeDrawer(); closeModal(); }
+});
+
+function render(){
+  buildLayerbar();
+  buildStations();
+  buildLegend();
+  if(openStation) openDrawer(openStation);
+}
+
+// info modal
+const modalScrim = document.getElementById('modalScrim');
+function openModal(){ modalScrim.classList.add('show'); }
+function closeModal(){ modalScrim.classList.remove('show'); }
+document.getElementById('infoBtn').addEventListener('click', openModal);
+document.getElementById('modalClose').addEventListener('click', closeModal);
+modalScrim.addEventListener('click', e=>{ if(e.target===modalScrim) closeModal(); });
+
+// theme toggle, per-viewer convenience only
+const themeToggle = document.getElementById('themeToggle');
+function applyTheme(t){
+  if(t) document.documentElement.setAttribute('data-theme', t);
+  else document.documentElement.removeAttribute('data-theme');
+}
+(function initTheme(){
+  try{
+    const saved = localStorage.getItem('sust720-map-theme');
+    if(saved) applyTheme(saved);
+  }catch(e){ /* storage unavailable, ignore */ }
+})();
+themeToggle.addEventListener('click', ()=>{
+  const current = document.documentElement.getAttribute('data-theme') || 'dark';
+  const next = current === 'light' ? 'dark' : 'light';
+  applyTheme(next);
+  try{ localStorage.setItem('sust720-map-theme', next); }catch(e){ /* ignore */ }
+});
+
+render();
+// show the how-to-read modal on first visit only
+try{
+  if(!localStorage.getItem('sust720-map-seen')){
+    openModal();
+    localStorage.setItem('sust720-map-seen','1');
+  }
+}catch(e){ openModal(); }
+</script>
+</body>
+</html>
