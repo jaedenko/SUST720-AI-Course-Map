@@ -603,40 +603,38 @@ const LAYERS = [
 
 const STATIONS = [
   {
-    id:'orient', x:120, y:470, week:'Wks 1–2', name:'Reading Deep Time',
-    goal:'Learn the difference between everyday clock time and the much longer time frames used in geology, forecasting, and Indigenous knowledge.',
-    assessment:'A short graded reflection, plus an informal journal that isn\u2019t graded.',
+    id:'orient', x:120, y:470, week:'Step 1', name:'Epistemic & Temporal Grounding',
+    goal:'Understand deep time, geologic scale, and Indigenous relational ways of experiencing time — comparing Indigenous and scientific deep-time frameworks using classic texts and analog canvases to map 500-year ecological cycles (Kimmerer, Whyte, Bjornerud).',
+    assessment:'A 500-Year Bioregional Baseline Canvas, plus an Ontological Covenant the team commits to.',
     people:[
-      {tag:'Student', role:'writes the journal and the reflection'},
-      {tag:'Instructor', role:'Dr. Odera Whitfield — picks the readings for this unit'},
-      {tag:'TA', role:'double-checks sources before students cite them'},
+      {tag:'Student Team', role:'grounds the research in non-extractive scholarship and identifies ecological keystones'},
+      {tag:'Faculty', role:'compiles the resources students research and take in'},
     ],
     ai:[
-      {kind:'insertion', title:'AI-assisted reading list', body:'A student asks AI to suggest a first batch of readings on one way of understanding time. In: a few keywords. Out: an unchecked list of sources — nothing more.'},
-      {kind:'boundary', title:'The reflection itself', body:'AI can\u2019t help write the reflection. It\u2019s graded as the student\u2019s own thinking as it develops, not as a finished piece of writing.'},
-      {kind:'judgment', title:'What counts as real engagement', body:'Whether a reflection shows genuine thinking about the ideas — not just correct use of new vocabulary — is a call only a person can make.', who:'Instructor'},
+      {kind:'insertion', title:'AI-assisted resource compiling', body:'Faculty may use AI to help rough out the reading list students draw from. In: a topic and a few keywords. Out: a rough set of resources faculty still choose and check before assigning.'},
+      {kind:'boundary', title:'The source material itself', body:'AI can\u2019t summarize, paraphrase, or stand in for the primary texts (Kimmerer, Whyte, Bjornerud) or the Indigenous relational-time concepts in them. Students engage the sources directly — that\u2019s what "non-extractive scholarship" means here.'},
+      {kind:'judgment', title:'Choosing the bioregional standard', body:'Picking the bioregional standard and the core metaphysical framework for the covenant is a decision only the student team can make.', who:'Student Team'},
     ],
-    handoff:{who:'The TA checks every AI-suggested source against the library catalog before it can be cited.', wrong:'A made-up source doesn\u2019t cost the student a grade — but they have to find and cite a real one before they turn the work in.'},
-    power:{formal:'The instructor decides which ideas about time frame the unit.', invisible:'The TA\u2019s standard for what counts as "checked" quietly decides which AI-suggested sources ever make it into use.'},
+    handoff:{who:'Faculty give feedback on cultural humility and on how honestly the team represents what it actually knows, before the covenant is treated as settled.', wrong:'If the baseline canvas flattens Indigenous knowledge into generic data or overstates certainty, faculty send it back for revision before it counts as a covenant.'},
+    power:{formal:'The student team decides the bioregional standard and the core metaphysical framework — the assignment names this as their call, explicitly.', invisible:'Which resources faculty choose to compile quietly shapes which frameworks students even get the chance to encounter.'},
   },
   {
-    id:'forecast', x:360, y:270, week:'Wks 3–4', name:'Forecasting & Anti-fragility Lab',
-    goal:'Use forecasting and anti-fragility thinking to test how well an idea about a sustainability problem would hold up under stress.',
-    assessment:'A forecast write-up with probability ranges, graded mostly on the reasoning behind the numbers, not just the numbers themselves.',
+    id:'forecast', x:360, y:270, week:'Step 2', name:'Superforecasting & Volatility Stress-Testing',
+    goal:'Use anti-fragility and superforecasting to work with complicated social and ecological systems — modeling how a system holds up under compounding 500-year climate shocks.',
+    assessment:'A Volatility Matrix across four quadrants, plus an Anti-Fragility Stress-Test Record.',
     people:[
-      {tag:'Forecasting pair', role:'two students working the same problem together'},
-      {tag:'Instructor', role:'checks a sample of sources before grading'},
-      {tag:'Guest forecaster', role:'a working professional who set the grading bar'},
+      {tag:'Student Team', role:'builds resilience hypotheses and investigates cascading failure modes'},
+      {tag:'Faculty', role:'gives a bare-bones example — the skeleton of a sustainable engine — to work from'},
     ],
     ai:[
-      {kind:'insertion', title:'AI-assisted signal scan', body:'Pairs ask AI to surface early trends and warning signs. In: a topic and a time window. Out: a rough, unsorted list of leads with sources attached.'},
-      {kind:'judgment', title:'Deciding what to trust', body:'Sorting a real signal from noise — and deciding which leads are solid enough to build a forecast on — stays with the two students doing the work.', who:'Forecasting pair'},
+      {kind:'insertion', title:'AI-assisted volatility modeling', body:'The team can use AI to help run the volatility matrix and surface possible cascading failures. In: the system\u2019s core assumptions. Out: draft shock scenarios and failure chains for the team to test.'},
+      {kind:'judgment', title:'Picking the shock to simulate', body:'Deciding which non-linear biophysical shock actually gets simulated is the team\u2019s call — not whatever the model happens to suggest first.', who:'Student Team'},
     ],
-    handoff:{who:'The pair reviews the AI\u2019s list together and checks any lead they actually use against a real source; the instructor spot-checks a random sample.', wrong:'If a made-up lead slips into the final write-up, it costs points on the reasoning — not the whole grade. Catching bad data is part of what\u2019s being tested.'},
-    power:{formal:'The forecasting pair decides which leads to pursue.', invisible:'The guest forecaster wrote the grading rubric before the term even started — that quietly decides what counts as a "good" forecast.'},
+    handoff:{who:'Peers review the volatility matrix and stress-test record, and test it against real-world models.', wrong:'If the anti-fragility claims don\u2019t hold up against a real-world comparison, the team revises the matrix before the record counts as final.'},
+    power:{formal:'The student team decides which shock to model and which resilience hypotheses to pursue.', invisible:'Faculty\u2019s bare-bones example of a "sustainable engine" quietly sets the shape of what counts as a plausible system in the first place.'},
   },
   {
-    id:'indigenous', x:620, y:520, week:'Wk 5', name:'Indigenous Ways of Knowing Seminar',
+    id:'indigenous', x:620, y:520, week:'Step 3', name:'Indigenous Ways of Knowing Seminar',
     goal:'Learn from Indigenous ways of understanding time and knowledge, without turning what\u2019s shared into a generic "lesson" anyone can reuse.',
     assessment:'Showing up and taking part, plus a short written plan for how to give something back for what was shared.',
     people:[
@@ -653,7 +651,7 @@ const STATIONS = [
     power:{formal:'The Knowledge Holder decides what is shared and how it can be used — that\u2019s not the course\u2019s decision to make.', invisible:'The agreement the Program Chair signs before the term starts quietly shapes what this relationship is even allowed to be.'},
   },
   {
-    id:'speculative', x:880, y:260, week:'Wks 6–8', name:'Speculative Design & Design Fiction Studio',
+    id:'speculative', x:880, y:260, week:'Step 4', name:'Speculative Design & Design Fiction Studio',
     goal:'Build a physical object from an imagined future — one real enough that people want to ask it questions.',
     assessment:'The object itself, plus its backstory, graded in a group critique.',
     people:[
@@ -670,7 +668,7 @@ const STATIONS = [
     power:{formal:'Students decide what to keep or cut from any AI draft.', invisible:'What the class reacts well to in critique quietly decides what counts as a "good" future world, no matter what the rubric says.'},
   },
   {
-    id:'cocreate', x:1140, y:470, week:'Wks 8–9', name:'Co-creation Workshop with Community Partners',
+    id:'cocreate', x:1140, y:470, week:'Step 5', name:'Co-creation Workshop with Community Partners',
     goal:'Run a workshop where community partners help build the future scenario — so their knowledge leads, not the student\u2019s own design instincts.',
     assessment:'How well the workshop is run, plus a short write-up of what came out of it.',
     people:[
@@ -688,7 +686,7 @@ const STATIONS = [
     power:{formal:'Partners have the final say on whether the write-up represents them fairly.', invisible:'Whoever schedules the partners\u2019 time and pay quietly decides whose priorities shape the room.'},
   },
   {
-    id:'capstone', x:1420, y:320, week:'Wks 9–10', name:'Transformative Scenario Planning Capstone',
+    id:'capstone', x:1420, y:320, week:'Step 6', name:'Transformative Scenario Planning Capstone',
     goal:'Bring the term\u2019s tools together into a set of possible futures for one sustainability problem — 500 years out — and explain how ideas about time shaped the work.',
     assessment:'A final portfolio of scenarios plus a spoken defense of it. This is the big final grade.',
     people:[
